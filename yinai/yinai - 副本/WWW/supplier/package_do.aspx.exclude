@@ -1,0 +1,75 @@
+﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+
+<script runat="server">
+    private ITools tools;
+    private Package myApp;
+    int product_id;
+    string strPID;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        new Supplier().Supplier_Login_Check("/supplier/package_list.aspx");
+        
+        
+        tools = ToolsFactory.CreateTools();
+        myApp = new Package();
+        string action = Request["action"];
+        switch (action)
+        {
+            case "new":
+                Session.Remove("productid_ed");
+                myApp.AddPackage();
+                break;
+            case "renew":
+                Session.Remove("productid_ed");
+                myApp.EditPackage();
+                break;
+            case "move":
+                myApp.DelPackage();
+                break;
+            case "check_product":
+                strPID = tools.CheckStr(Request.QueryString["product_id"]);
+                if (strPID.Length > 0 ) {
+                    IList<PackageProductInfo> entityList = (IList<PackageProductInfo>)Session["PackageProductInfo"];
+                    PackageProductInfo entity = null;
+                    string[] PIDARR = strPID.Split(',');
+                    foreach (string addPID in PIDARR)
+                    {
+                        if (tools.CheckInt(addPID) < 1) { continue; }
+                        
+                        entity = new PackageProductInfo();
+                        entity.Package_Product_ProductID = int.Parse(addPID);
+                        entity.Package_Product_Amount = 1;
+                        entity.Package_Product_PackageID = 0;
+                        entity.Package_Product_ID = 0;
+                        entityList.Add(entity);
+                    }
+                    Session["PackageProductInfo"] = null;
+                    Session["PackageProductInfo"] = entityList;
+                    entityList = null; 
+                }
+                Response.Write(myApp.ShowProduct());
+                break;
+            case "product_del":
+                product_id = tools.CheckInt(Request.QueryString["product_id"]);
+                if (product_id > 0) {
+                    IList<PackageProductInfo> entityList = (IList<PackageProductInfo>)Session["PackageProductInfo"];
+                    foreach (PackageProductInfo entity in entityList) {
+                        if (entity.Package_Product_ProductID == product_id) { entityList.Remove(entity); break; }
+                    }
+                    Session["PackageProductInfo"] = null;
+                    Session["PackageProductInfo"] = entityList;
+                    entityList = null; 
+                }
+                
+                Response.Write(myApp.ShowProduct());
+                break;
+        }
+    }
+    protected void Page_Unload(object sender, EventArgs e)
+    {
+        myApp = null;
+    }
+</script>

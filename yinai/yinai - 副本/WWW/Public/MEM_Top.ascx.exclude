@@ -1,0 +1,40 @@
+﻿<%@ Control Language="C#" ClassName="MEM_Top" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Register Src="~/Public/public_top.ascx" TagPrefix="pubtop" TagName="publictop" %>
+<%
+    Product product = new Product();
+%>
+
+
+
+
+<div class="sz_head">
+
+    <pubtop:publictop ID="top1" runat="server" />
+
+    <div class="nav02">
+        <div class="nav_main02">
+            <div class="nav_left02"> 
+                <span>行业市场</span>
+                <div class="menu menu02">
+                    <div class="dropList" id="0">
+                        <%=product.Home_Left_Cate() %>
+                    </div>
+                </div>
+            </div>
+            <div class="nav_right02">
+                <ul>
+                    <li <%=Session["SubPosition"]=="TradeIndex"?"class=\"on\"":"" %>><a href="/TradeIndex.htm">首页</a></li>
+                    <li <%=Session["SubPosition"]=="Suppliers"?"class=\"on\"":"" %>><a href="/suppliers.htm">供货商</a></li>
+                    <li <%=Session["SubPosition"]=="NewProduct"?"class=\"on\"":"" %>><a href="/product/new_product.htm">新品上线</a></li>
+                    <li <%=Session["SubPosition"]=="Brand"?"class=\"on\"":"" %>><a href="/purchase/brand_joined.htm">品牌加盟</a></li>
+                    <li <%=Session["SubPosition"]=="Xindai"?"class=\"on\"":"" %>><a href="javascript:;" >信贷中心</a></li>
+                    <li <%=Session["SubPosition"]=="Purchase"?"class=\"on\"":"" %>><a href="/purchase/purchase_index.htm">大宗采购</a></li>
+                    <li <%=Session["SubPosition"]=="jewelrys"?"class=\"on\"":"" %>><a href="/jewelrys.htm">珠宝精品库</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

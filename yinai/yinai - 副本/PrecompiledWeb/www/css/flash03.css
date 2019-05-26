@@ -1,0 +1,9 @@
+﻿@charset "utf-8";
+#flash02 { width:744px;height:206px; margin:0 auto;clear: both;padding: 0px; position:relative;}
+#flash02 a { width:744px;height:206px;margin:0 auto; display:block; background-position:center; cursor:pointer;}
+#flash1 a { background-image:url(../images/ad_pic04.jpg); background-repeat:no-repeat; background-position:certer;  width:744px;height:206px;margin:0 auto; display:block; background-position:center;}
+#flash2 a { background-image:url(../images/ad_pic04.jpg); background-repeat:no-repeat; background-position:certer;  width:744px;height:206px;margin:0 auto; display:block; background-position:center;}
+#flash3 a { background-image:url(../images/ad_pic04.jpg); background-repeat:no-repeat; background-position:certer;  width:744px;height:206px;margin:0 auto; display:block; background-position:center;}
+.flash_bar { text-align:center;  width:135px; margin:0 auto; height:24px; margin-top:-20px; position:relative; z-index:99997;}
+.flash_bar .dq { display:block; float:left; width:35px;height:5px;cursor: pointer;overflow:hidden; background-color:#ce1329;  margin:0 5px;}
+.flash_bar .no { display:block; float:left;width:35px;height:5px;cursor: pointer;overflow:hidden; background-color:#fff; margin:0 5px;}

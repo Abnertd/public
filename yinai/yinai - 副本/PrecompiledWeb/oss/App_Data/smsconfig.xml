@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<smsconfig>
+  <config>
+    <sn>李凤月</sn>
+    <account>lifengyue</account>
+    <pwd>lifengyue</pwd>
+    <log></log>
+  </config>
+  <templates>
+
+    <template key="meber_to_supplier"> 尊敬的{0}：您好！恭喜您通过了平台审核，易耐网全体成员将竭诚为您服务。</template>
+    template>
+
+  </templates>
+</smsconfig>
+
+

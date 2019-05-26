@@ -1,0 +1,248 @@
+﻿<%@ Page Language="C#" %>
+
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+<%@ Register Src="~/Public/Top.ascx" TagPrefix="uctop" TagName="top" %>
+<%@ Register Src="~/Public/bottom_simple.ascx" TagPrefix="ucbottom" TagName="bottom" %>
+<% 
+    Public_Class pub = new Public_Class();
+    ITools tools = ToolsFactory.CreateTools();
+    Supplier supplier = new Supplier();
+    string purchaseName = " -- ";
+    int PriceReport_ID = tools.CheckInt(Request["PriceReport_ID"]);
+
+    supplier.Supplier_Login_Check("/supplier/MyPriceReportDetail.aspx?PriceReport_ID=" + PriceReport_ID);
+
+    int supplier_id = tools.NullInt(Session["supplier_id"]);
+
+    SupplierPriceReportInfo entity = null;
+    if (PriceReport_ID > 0)
+    {
+         entity = supplier.SupplierPriceReportByID(PriceReport_ID);
+        if (entity == null)
+        {
+            Response.Redirect("/supplier/MyPriceReport_list.aspx");
+        }
+        else
+        {
+            if (entity.PriceReport_MemberID != supplier_id)
+            {
+                Response.Redirect("/supplier/MyPriceReport_list.aspx");
+            }
+
+            SupplierPurchaseInfo spinfo = supplier.GetSupplierPurchaseByID(entity.PriceReport_PurchaseID);
+            if (spinfo != null)
+            {
+                purchaseName = spinfo.Purchase_Title;
+            }
+            else
+            {
+                Response.Redirect("/supplier/MyPriceReport_list.aspx");
+            }
+
+        }
+    }
+    else
+    {
+        Response.Redirect("/supplier/MyPriceReport_list.aspx");
+    }
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        <%="查看报价 - 会员中心 - " + pub.SEO_TITLE()%></title>
+         <meta name="Keywords" content="<% = Application["Site_Keyword"]%>"/>
+    <meta name="Description" content="<%=Application["Site_Description"]%>" />
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <script src="/scripts/common.js" type="text/javascript"></script>
+    <!--滑动门 开始-->
+    <script type="text/javascript" src="/scripts/hdtab.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var SDmodel = new scrollDoor();
+            SDmodel.sd(["c01", "c02"], ["cc01", "cc02"], "on", " ");
+        }
+    </script>
+    <style type="text/css">
+        .table_text tr
+        {
+            height: 34px;
+        }
+        .table_text td
+        {
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <uctop:top ID="top1" runat="server" />
+    <!--主体 开始-->
+    <div class="content">
+        <!--位置说明 开始-->
+        <div class="position">
+            您现在的位置 > <a href="/">首页</a> > <a href="index.aspx">会员中心</a> > <span>查看报价</span></div>
+        <div class="clear">
+        </div>
+        <!--位置说明 结束-->
+        <div class="parth">
+            <div class="ph_left">
+                <%supplier.Get_Supplier_Left_HTML(4, 1); %>
+            </div>
+            <div class="ph_right">
+                <div class="blk13">
+                    <h2>
+                        查看报价</h2>
+                    <div class="main">
+                        <div class="zkw_order">
+                            <h3 class="zkw_title21">
+                                <%
+                                    StringBuilder strHTML = new StringBuilder();
+                                    strHTML.Append("<ul class=\"zkw_lst31\">");
+                                    strHTML.Append("	<li class=\"on\" id=\"apply_1\" onclick=\"Set_Tab('apply',1,2,'on','');\">基本信息</li>");
+                                    strHTML.Append("	<li id=\"apply_2\" onclick=\"Set_Tab('apply',2,2,'on','');\">报价清单</li>");
+                                    strHTML.Append("</ul><div class=\"clear\"></div>");
+                                    Response.Write(strHTML.ToString());
+                                %>
+                            </h3>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="5" id="apply_1_content"
+                                class="table_text">
+                                <tr>
+                                    <td width="100" align="right" class="t12_53">
+                                        采购标题
+                                    </td>
+                                    <td>
+                                        <%= purchaseName %>
+                                    </td>
+                                </tr>
+                                <%--<tr>
+                                    <td width="100" align="right" class="t12_53">
+                                        报价标题
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_Title %>
+                                    </td>
+                                </tr>--%>
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        联系人
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_Name%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        联系手机
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_Phone%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        交货时间
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_DeliveryDate.ToShortDateString() %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100" align="right" class="t12_53">
+                                        报价备注
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_Note %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        报价时间
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_AddTime %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        商家回复
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_ReplyContent%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        回复状态
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_IsReply==1?"已回复":"未回复"%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        审核状态
+                                    </td>
+                                    <td>
+                                        <%=entity.PriceReport_AuditStatus==1?"已审核":"未审核"%>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" id="apply_2_content"
+                                style="display: none">
+                                <tr>
+                                    <td>
+                                    <table width="100%" cellpadding="0" align="center" cellspacing="1" style="background:#dadada; margin:10px 0px;" ><tr style="background:url(/images/ping.jpg); height:30px;">  <th align="center" valign="middle">产品名称</th>  <th align="center" valign="middle" >规格/单位</th>  <th width="120" align="center" valign="middle">采购数量</th>  <th width="110" align="center" valign="middle">采购单价</th><th width="120" align="center" valign="middle">供货数量</th>  <th width="110" align="center" valign="middle">供货报价</th></tr>
+                                        <%
+                                            IList<SupplierPriceReportDetailInfo> entitys = supplier.GetSupplierPriceReportDetailsByPriceReportID(entity.PriceReport_ID);
+                                            int i = 1;
+
+                                            if (entitys != null)
+                                            {
+
+                                                foreach (SupplierPriceReportDetailInfo detailinfo in entitys)
+                                                {
+                                                    SupplierPurchaseDetailInfo purchasedetailinfo = supplier.GetSupplierPurchaseDetailByID(detailinfo.Detail_PurchaseDetailID);
+                                                    if (purchasedetailinfo != null)
+                                                    {
+                                        %>
+                                        <tr bgcolor="#FFFFFF" height="90"><td align="center" valign="middle"><%=purchasedetailinfo.Detail_Name%></td><td align="center" valign="middle"><%=purchasedetailinfo.Detail_Spec%></td><td align="center" valign="middle"><%=purchasedetailinfo.Detail_Amount%></td><td align="center" valign="middle"> <%=pub.FormatCurrency(purchasedetailinfo.Detail_Price)%></td><td align="center" valign="middle"><%=detailinfo.Detail_Amount%></td><td align="center" valign="middle"> <%=pub.FormatCurrency(detailinfo.Detail_Price)%></td></tr>
+                                        <%
+i++;
+                                                    }
+                                                }
+                                            }
+                                        %>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td align="right" class="t12_53">
+                                        &nbsp;
+                                    </td>
+                                    <td align="center">
+                                        <span class="table_v_title">
+                                            <input type="button" onclick="javascript:window.location.href='MyPriceReport_list.aspx'"
+                                                class="buttonSkinA" value="返回列表" />
+                                            <%-- <a href="MyPriceReport_list.aspx" class="buttonSkinA">返回列表</a>--%>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <!--主体 结束-->
+  <ucbottom:bottom runat="server" ID="Bottom" />
+</body>
+</html>

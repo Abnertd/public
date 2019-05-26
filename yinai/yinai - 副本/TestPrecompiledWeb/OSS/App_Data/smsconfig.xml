@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<smsconfig>
+  <config>
+    <sn>101100-WEB-HUAX-008848</sn>
+    <pwd>NCDAMKFT</pwd>
+    <log></log>
+  </config>
+  <templates>
+    
+    <template key="user_audit">尊敬的用户您好！您提交的注册信息已通过审核，即日登陆易耐产业金融网进行业务操作【易耐产业金融网】</template>
+    
+  </templates>
+</smsconfig>
+
+

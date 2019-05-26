@@ -1,0 +1,30 @@
+1 Head中加入这句话
+<script type="text/javascript" src="/public/fckeditor/fckeditor.js"></script>
+
+2 需要的地方加入这个
+<script type="text/javascript">
+	var oFCKeditor = new FCKeditor("prolib_intro");
+	oFCKeditor.BasePath = "/public/fckeditor/";
+	oFCKeditor.Width = 500 ;
+	oFCKeditor.Height = 200 ;
+	oFCKeditor.ToolbarSet = "Basic" ;
+	oFCKeditor.Value = "" ;
+	oFCKeditor.Config[ "AutoDetectLanguage" ] = false ;
+	oFCKeditor.Config[ "DefaultLanguage" ] = "zh-cn" ;
+	oFCKeditor.Create();
+</script>
+
+或者
+
+<textarea name="tmp_prolib_intro" style="display:none"><%=prolib_intro%></textarea>
+<script type="text/javascript">
+	var oFCKeditor = new FCKeditor("prolib_intro");
+	oFCKeditor.BasePath = "/public/fckeditor/";
+	oFCKeditor.Width = 500 ;
+	oFCKeditor.Height = 200 ;
+	oFCKeditor.ToolbarSet = "Basic" ;
+	oFCKeditor.Value = MM_findObj("tmp_prolib_intro").value;
+	oFCKeditor.Config[ "AutoDetectLanguage" ] = false ;
+	oFCKeditor.Config[ "DefaultLanguage" ] = "zh-cn" ;
+	oFCKeditor.Create();
+</script>

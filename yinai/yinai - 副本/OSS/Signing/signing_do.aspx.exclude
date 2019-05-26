@@ -1,0 +1,64 @@
+﻿<%@ Page Language="C#" %>
+
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<script runat="server">
+    
+    private Signing myApp;
+    private ITools tools;
+    //private CCBPay.SendMessages sm;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        myApp = new Signing();
+        //sm = new CCBPay.SendMessages();
+        string action = Request["action"];
+        tools = ToolsFactory.CreateTools();
+       
+        int Signing_ID = tools.CheckInt(Request["Signing_ID"]);
+       
+        switch (action)
+        {
+            //case "new":
+            //    Public.CheckLogin("c747b411-cf59-447b-a2d7-7e5510589f25");
+
+            //    myApp.AddAbout();
+            //    break;
+            case "renew":
+
+                Public.CheckLogin("all");
+                myApp.EditSigning();
+                break;
+            case "fenpei":
+                Public.CheckLogin("all");
+                myApp.FeiPeiSigning(Signing_ID);
+                break;
+            //case "tuisong":
+            //    Public.CheckLogin("all");
+            //    sm.CCB_3FC001(Signing_ID);
+            //    break;
+            //case "qianyue":
+            //    Public.CheckLogin("all");
+            //    sm.CCB_3FC014(Signing_ID);
+            //    break;
+
+
+            //case "move":
+            //    Public.CheckLogin("622c8cf4-0cae-47f7-bd02-19bd8b5c169d");
+
+            //    myApp.DelAbout();
+            //    break;
+            case "list":
+                Public.CheckLogin("all");
+
+                Response.Write(myApp.GetSignings());
+                Response.End();
+                break;
+        }
+
+    }
+    protected void Page_Unload(object sender, EventArgs e)
+    {
+        myApp = null;
+        tools = null;
+    }
+</script>

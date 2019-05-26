@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9ACABF4-5F57-40BB-8019-A2BA992E7E05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glaer.Trade.B2C.DAL.Sys</RootNamespace>
+    <AssemblyName>Glaer.Trade.B2C.DAL.Sys</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Glaer.Trade.Util.Encrypt">
+      <HintPath>C:\Users\Administrator\Desktop\新建文件夹\Glaer.Trade.Util.Encrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="Glaer.Trade.Util.SQLHelper">
+      <HintPath>C:\Users\Administrator\Desktop\新建文件夹\Glaer.Trade.Util.SQLHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Glaer.Trade.Util.Tools">
+      <HintPath>C:\Users\Administrator\Desktop\新建文件夹\Glaer.Trade.Util.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addr.cs" />
+    <Compile Include="AddrFactory.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="ConfigFactory.cs" />
+    <Compile Include="IAddr.cs" />
+    <Compile Include="IKeywordsRanking.cs" />
+    <Compile Include="IRBACPrivilege.cs" />
+    <Compile Include="IRBACResource.cs" />
+    <Compile Include="IRBACRole.cs" />
+    <Compile Include="IConfig.cs" />
+    <Compile Include="ISources.cs" />
+    <Compile Include="ISysCityInfo.cs" />
+    <Compile Include="ISysCounty.cs" />
+    <Compile Include="ISysMenu.cs" />
+    <Compile Include="ISysMessage.cs" />
+    <Compile Include="ISysState.cs" />
+    <Compile Include="IUser.cs" />
+    <Compile Include="KeywordsRanking.cs" />
+    <Compile Include="KeywordsRankingFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBACPrivilege.cs" />
+    <Compile Include="RBACPrivilegeFactory.cs" />
+    <Compile Include="RBACResource.cs" />
+    <Compile Include="RBACResourceFactory.cs" />
+    <Compile Include="RBACRole.cs" />
+    <Compile Include="RBACRoleFactory.cs" />
+    <Compile Include="Sources.cs" />
+    <Compile Include="SourcesFactory.cs" />
+    <Compile Include="SysCityInfo.cs" />
+    <Compile Include="SysCityInfoFactory.cs" />
+    <Compile Include="SysCounty.cs" />
+    <Compile Include="SysCountyFactory.cs" />
+    <Compile Include="SysMenu.cs" />
+    <Compile Include="SysMenuFactory.cs" />
+    <Compile Include="SysMessage.cs" />
+    <Compile Include="SysMessageFactory.cs" />
+    <Compile Include="SysState.cs" />
+    <Compile Include="SysStateFactory.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Glaer.Trade.B2C.Model\Glaer.Trade.B2C.Model.csproj">
+      <Project>{6524BC89-0507-4A21-A89F-522312392D39}</Project>
+      <Name>Glaer.Trade.B2C.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Glaer.Trade.B2C.ORM\Glaer.Trade.B2C.ORM.csproj">
+      <Project>{CE144363-CB6C-4512-A798-B3032FBF5AB0}</Project>
+      <Name>Glaer.Trade.B2C.ORM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

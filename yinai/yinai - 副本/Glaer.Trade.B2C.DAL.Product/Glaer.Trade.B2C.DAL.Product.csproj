@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC6F7D4D-B9F9-4534-AA9E-E5EB096417FC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glaer.Trade.B2C.DAL.Product</RootNamespace>
+    <AssemblyName>Glaer.Trade.B2C.DAL.Product</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Glaer.Trade.Util.Encrypt">
+      <HintPath>E:\NewBin\Glaer.Trade.Util.Encrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="Glaer.Trade.Util.SQLHelper">
+      <HintPath>E:\NewBin\Glaer.Trade.Util.SQLHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Glaer.Trade.Util.Tools">
+      <HintPath>E:\NewBin\Glaer.Trade.Util.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Brand.cs" />
+    <Compile Include="BrandFactory.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CategoryFactory.cs" />
+    <Compile Include="HomeLeftCate.cs" />
+    <Compile Include="HomeLeftCateFactory.cs" />
+    <Compile Include="IBrand.cs" />
+    <Compile Include="ICategory.cs" />
+    <Compile Include="IHomeLeftCate.cs" />
+    <Compile Include="IPackage.cs" />
+    <Compile Include="IProduct.cs" />
+    <Compile Include="IProductAuditReason.cs" />
+    <Compile Include="IProductHistoryPrice.cs" />
+    <Compile Include="IProductNotify.cs" />
+    <Compile Include="IProductPrice.cs" />
+    <Compile Include="IProductReview.cs" />
+    <Compile Include="IProductReviewConfig.cs" />
+    <Compile Include="IProductTag.cs" />
+    <Compile Include="IProductTypeExtend.cs" />
+    <Compile Include="IShoppingAsk.cs" />
+    <Compile Include="IStockoutBooking.cs" />
+    <Compile Include="ISupplierPriceAsk.cs" />
+    <Compile Include="Package.cs" />
+    <Compile Include="PackageFactory.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductAuditReason.cs" />
+    <Compile Include="ProductAuditReasonFactory.cs" />
+    <Compile Include="ProductFactory.cs" />
+    <Compile Include="ProductHistoryPrice.cs" />
+    <Compile Include="ProductHistoryPriceFactory.cs" />
+    <Compile Include="ProductNotify.cs" />
+    <Compile Include="ProductNotifyFactory.cs" />
+    <Compile Include="ProductPrice.cs" />
+    <Compile Include="ProductPriceFactory.cs" />
+    <Compile Include="ProductReview.cs" />
+    <Compile Include="ProductReviewConfig.cs" />
+    <Compile Include="ProductReviewConfigFactory.cs" />
+    <Compile Include="ProductReviewFactory.cs" />
+    <Compile Include="ProductTag.cs" />
+    <Compile Include="ProductTagFactory.cs" />
+    <Compile Include="IProductType.cs" />
+    <Compile Include="ProductTypeExtend.cs" />
+    <Compile Include="ProductTypeExtendFactory.cs" />
+    <Compile Include="ProductTypeFactory.cs" />
+    <Compile Include="ProductType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingAsk.cs" />
+    <Compile Include="ShoppingAskFactory.cs" />
+    <Compile Include="StockoutBooking.cs" />
+    <Compile Include="StockoutBookingFactory.cs" />
+    <Compile Include="SupplierPriceAsk.cs" />
+    <Compile Include="SupplierPriceAskFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Glaer.Trade.B2C.Model\Glaer.Trade.B2C.Model.csproj">
+      <Project>{6524BC89-0507-4A21-A89F-522312392D39}</Project>
+      <Name>Glaer.Trade.B2C.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Glaer.Trade.B2C.ORM\Glaer.Trade.B2C.ORM.csproj">
+      <Project>{CE144363-CB6C-4512-A798-B3032FBF5AB0}</Project>
+      <Name>Glaer.Trade.B2C.ORM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

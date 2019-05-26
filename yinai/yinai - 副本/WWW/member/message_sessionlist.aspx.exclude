@@ -1,0 +1,75 @@
+﻿<%@ Page Language="C#" %>
+
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+<%@ Register Src="~/Public/MEM_Top.ascx" TagPrefix="uctop" TagName="top" %>
+<%@ Register Src="~/Public/bottom_simple.ascx" TagPrefix="ucbottom" TagName="bottom" %>
+
+
+
+<% 
+    Public_Class pub = new Public_Class();
+    ITools tools = ToolsFactory.CreateTools();
+    Member member = new Member();
+    Session["Cur_Position"] = Session["Home_Position"] = "";
+    member.Member_Login_Check("/member/message_list.aspx");
+    string title = "";
+    title = "对话列表";
+
+    string Start_Time = tools.CheckStr(Request["Start_Time"]);
+    string End_Time = tools.CheckStr(Request["End_Time"]);
+    
+    
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%=title + " - 我是买家 - " + pub.SEO_TITLE()%></title>
+         <meta name="Keywords" content="<% = Application["Site_Keyword"]%>"/>
+    <meta name="Description" content="<%=Application["Site_Description"]%>" />
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index2.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index3.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/common.js"></script>
+    <script src="/scripts/member.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+    <uctop:top ID="top1" runat="server" />
+
+    <!--主体 开始-->
+    <div class="content02">
+        <div class="content02_main">
+            <!--位置说明 开始-->
+            <div class="position"><a href="/tradeindex.aspx">首页</a> > <a href="/member/">采购商用户中心</a> > 辅助功能 > <strong><%=title %></strong></div>
+            <!--位置说明 结束-->
+            <div class="partc">
+                <div class="pc_left">
+                    <div class="blk12">
+                        <%=member.Member_Left_HTML(3,9) %>
+                    </div>
+                </div>
+                <div class="pc_right">
+                    <div class="title03"><%=title %></div>
+                    <form action="message_sessionlist.aspx" method="post" id="frm_search" name="frm_search">
+                        <div class="blk04">开始时间：<input type="text" name="Start_Time" id="Start_Time" style="width: 195px;" readonly="readonly" value="<%=Start_Time %>" onclick="WdatePicker({ skin: 'twoer', dateFmt: 'yyyy-MM-dd' })" class="Wdate input" />
+                            结束时间：<input type="text" name="End_Time" id="End_Time" style="width: 195px;" readonly="readonly" value="<%=End_Time %>" onclick="WdatePicker({ skin: 'twoer', dateFmt: 'yyyy-MM-dd' })" class="Wdate input" />
+                            <a href="javascript:void(0);" onclick="$('#frm_search').submit();">搜 索</a></div>
+                    </form>
+                    <div class="blk08" style="margin-top: 15px;">
+                        <%member.Member_SessionList(20); %>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--主体 结束-->
+
+  <ucbottom:bottom runat="server" ID="Bottom" />
+</body>
+</html>

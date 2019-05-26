@@ -1,0 +1,35 @@
+﻿
+/**-------------------新增店铺搜索页样式--------------------**/
+.parto { overflow:hidden;}
+.parto h2 { font-size:14px; font-weight:normal; color:#333333; line-height:18px; display:block;}
+.parto h2 strong { color:#ce1329; margin:0 3px;}
+.blk61 { height:260px; border:1px solid #dddddd; margin-top:20px; background-color:#FFF; width:1198px; position:relative;}
+.blk61 em img { width:34px; height:34px; position:absolute; right:0; top:0;}
+.b61_left { width:590px; float:left; display:inline; height:260px;}
+.b61_left h2 { padding:0 0 0 20px; line-height:70px; font-size:16px; font-weight:normal;}
+.b61_left h2 a { color:#333;}
+.b61_left h2 a:hover { color:#ce1329;}
+.b61_left h2 a { display:inline-block; margin-right:10px;}
+.b61_left h2 span a { font-size:12px; color:#999;}
+.b61_left h2 span a:hover { color:#ce1329;}
+.b61_left_main { overflow:hidden; padding:0 20px;}
+.b61_left_main ul li { width:275px; float:left; color:#333; display:inline; font-size:14px; font-weight:normal; line-height:40px;}
+.b61_left_main ul li span { color:#999;}
+.b61_left_main p { font-size:14px; font-weight:normal; color:#333333; line-height:20px; display:block; margin-top:30px;}
+.b61_left_main p a { color:#333;}
+.b61_left_main p a:hover { color:#ce1329;}
+.b61_right { width:608px; float:right; display:inline; background-color:#f8f8f8; height:260px; background-image:url(../images/div_bg2.jpg); background-repeat:no-repeat; background-position:0 80px;}
+.b61_right h2 { font-size:14px; font-weight:normal; line-height:24px; display:block; text-align:right; padding:10px 35px 0 0;}
+.b61_right h2 a { color:#333;}
+.b61_right h2 a:hover { color:#ce1329;}
+.b61_right_main { overflow:hidden; padding:0 0 0 13px;}
+.b61_right_main ul li { width:150px; float:left; display:inline; margin:10px 22px 0 22px;}
+.b61_right_main ul li .img_box { background-color:#fb591f; display:block; padding:2px;}
+.b61_right_main ul li .img_box a img { width:146px; height:146px;}
+.b61_right_main ul li .img_box i { height:25px; display:block; overflow:hidden; }
+.b61_right_main ul li .img_box i a { display:block; font-size:14px; font-weight:normal; color:#FFF; text-align:center; font-style:normal; line-height:25px;}
+.b61_right_main ul li p { display:block; line-height:30px;}
+.b61_right_main ul li p strong { font-size:14px; font-weight:bold; color:#ce1329;}
+.b61_right_main ul li p span { font-size:12px; font-weight:normal; color:#999; float:right; display:block;}
+.b61_right_main ul li:hover .img_box { background-color:#ce1329;}
+.b61_right_main ul li:hover .img_box i a { color:#FFF; text-decoration:none;}

@@ -1,0 +1,14 @@
+﻿        /**右侧滚动**/
+.right_scroll { position:fixed; width:40px;   z-index:999; margin-right:20px; bottom:70px; right:0%;}
+.right_scroll ul li { font-size:12px; font-weight:normal;color:#FFF; text-align:center; background-color:#fff;  position:relative; z-index:99999;   width:50px; height:55px;}
+.right_scroll ul li .img_box a { background-image:url(../images/Shop_bg_1.jpg); background-repeat:no-repeat; background-position:0px -55px; font-size:11px; font-weight:normal; color:#999; text-align:center; padding:55px 0 0 0; display:block;}
+.right_scroll ul li .img_box a:hover { background-image:url(../images/Shop_bg_2.png); background-repeat:no-repeat; background-position:0px -55px; font-size:11px; font-weight:normal; color:#e8138d; text-align:center; padding:55px 0 0 0; display:block; text-decoration:none;}
+.right_scroll ul li .img_box02 a { background-image:url(../images/Shop_bg_1.jpg); background-repeat:no-repeat; background-position:0px 0px; font-size:11px; font-weight:normal; color:#999; text-align:center; padding:55px 0 0 0; display:block;}
+.right_scroll ul li .img_box02 a:hover { background-image:url(../images/Shop_bg_2.jpg); background-repeat:no-repeat; background-position:0px 0px; font-size:11px; font-weight:normal; color:#e8138d; text-align:center; padding:55px 0 0 0; display:block; text-decoration:none;}
+
+.right_scroll ul li .img_box03 a { background-image:url(../images/Shop_bg_1.jpg); background-repeat:no-repeat; background-position:0px -110px; font-size:11px; font-weight:normal; color:#999; text-align:center; padding:55px 0 0 0; display:block;}
+.right_scroll ul li .img_box03 a:hover { background-image:url(../images/Shop_bg_3.jpg); background-repeat:no-repeat; background-position:0px -110px; font-size:11px; font-weight:normal; color:#e8138d; text-align:center; padding:55px 0 0 0; display:block; text-decoration:none;}
+
+
+.bannner img {width:100%;
+}

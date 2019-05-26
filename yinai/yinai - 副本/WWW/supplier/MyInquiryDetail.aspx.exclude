@@ -1,0 +1,197 @@
+﻿<%@ Page Language="C#" %>
+
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+<%@ Register Src="~/Public/Top.ascx" TagPrefix="uctop" TagName="top" %>
+<%@ Register Src="~/Public/bottom_simple.ascx" TagPrefix="ucbottom" TagName="bottom" %>
+<% 
+    Public_Class pub = new Public_Class();
+    ITools tools = ToolsFactory.CreateTools();
+    Supplier supplier = new Supplier();
+    Product product = new Product();
+    string product_name = " -- ";
+    int PriceAsk_ID = tools.CheckInt(Request["PriceAsk_ID"]);
+
+    supplier.Supplier_Login_Check("/supplier/MyInquiryDetail.aspx?PriceAsk_ID=" + PriceAsk_ID);
+
+    int supplier_id = tools.NullInt(Session["supplier_id"]);
+    SupplierPriceAskInfo entity = null;
+    if (PriceAsk_ID > 0)
+    {
+         entity = supplier.SupplierPriceAskByID(PriceAsk_ID);
+        if (entity == null)
+        {
+            Response.Redirect("/supplier/MyInquiry_list.aspx");
+        }
+        else
+        {
+            if (entity.PriceAsk_MemberID != supplier_id)
+            {
+                Response.Redirect("/supplier/MyInquiry_list.aspx");
+            }
+            ProductInfo productinfo = product.GetProductByID(entity.PriceAsk_ProductID);
+            if (productinfo != null)
+            {
+                product_name = productinfo.Product_Name;
+            }
+        }
+    }
+    else
+    {
+        Response.Redirect("/supplier/MyInquiry_list.aspx");
+    }   
+    
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        <%="查看询价 - 会员中心 - " + pub.SEO_TITLE()%></title>
+         <meta name="Keywords" content="<% = Application["Site_Keyword"]%>"/>
+    <meta name="Description" content="<%=Application["Site_Description"]%>" />
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <!--滑动门 开始-->
+    <script type="text/javascript" src="/scripts/hdtab.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var SDmodel = new scrollDoor();
+            SDmodel.sd(["c01", "c02"], ["cc01", "cc02"], "on", " ");
+        }
+    </script>
+    <style type="text/css">
+        .table_text tr
+        {
+            height: 34px;
+        }
+        .table_text td
+        {
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <uctop:top ID="top1" runat="server" />
+    <!--主体 开始-->
+    <div class="content">
+        <!--位置说明 开始-->
+        <div class="position">
+            您现在的位置 > <a href="/">首页</a> > <a href="index.aspx">会员中心</a> > <span>查看询价</span></div>
+        <div class="clear">
+        </div>
+        <!--位置说明 结束-->
+        <div class="parth">
+            <div class="ph_left">
+                <%supplier.Get_Supplier_Left_HTML(6, 1); %>
+            </div>
+            <div class="ph_right">
+                <div class="blk13">
+                    <h2>
+                        查看询价</h2>
+                    <div class="main">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="5" class="table_text">
+                            <tr>
+                                <td width="100" align="right" class="t12_53">
+                                    产品名称
+                                </td>
+                                <td>
+                                    <%=product_name%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100" align="right" class="t12_53">
+                                    询价标题
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_Title %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    联系人
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_Name%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    联系手机
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_Phone%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    意向采购数量
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_Quantity%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    意向采购单价
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_Price%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    交货时间
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_DeliveryDate.ToShortDateString() %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    询价内容
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_Content%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    询价时间
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_AddTime %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    商家回复
+                                </td>
+                                <td>
+                                    <%=entity.PriceAsk_ReplyContent%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="t12_53">
+                                    &nbsp;
+                                </td>
+                                <td align="center">
+                                    <span class="table_v_title">
+                                        <input type="button" onclick="javascript:window.location.href='MyInquiry_list.aspx'"
+                                            class="buttonSkinA" value="返回列表" />
+                                        <%-- <a href="MyInquiry_list.aspx"  class="buttonSkinA">返回列表</a> --%></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <!--主体 结束-->
+  <ucbottom:bottom runat="server" ID="Bottom" />
+</body>
+</html>

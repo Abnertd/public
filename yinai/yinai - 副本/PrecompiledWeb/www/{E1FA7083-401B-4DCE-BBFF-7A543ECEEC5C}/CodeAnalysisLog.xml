@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Targets>
+  <Target Name="C:\Users\唐俊文\AppData\Local\Temp\tmp2E1F.tmp.cadir\bin\App_Code.dll">
+   <Modules>
+    <Module Name="app_code.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Addr" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DisplayAddress(System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Addr.cs" Line="414">'Addr.DisplayAddress(string, string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DisplayAddresses(System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Addr.cs" Line="437">'Addr.DisplayAddresses(string, string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAddress(System.String,System.String,System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Addr.cs" Line="61">'Addr.SelectAddress(string, string, string, string, string, string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAddressDelivery(System.String,System.String,System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Addr.cs" Line="341">'Addr.SelectAddressDelivery(string, string, string, string, string, string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAddressNew(System.String,System.String,System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Addr.cs" Line="136">'Addr.SelectAddressNew(string, string, string, string, string, string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAddressSecond(System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Addr.cs" Line="286">'Addr.SelectAddressSecond(string, string, string, string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectProductState(System.String,System.String,System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Addr.cs" Line="213">'Addr.SelectProductState(string, string, string, string, string, string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="HttpSend" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#getSend(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="不要多次释放对象" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\SMS" File="HttpSend.cs" Line="87">可以在方法 'HttpSend.getSend(string, string)' 中多次释放对象 'respStream'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。: Lines: 87</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ITextSharp" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CreatePDFContract(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="ITextSharp.cs" Line="70">'ITextSharp.CreatePDFContract(string, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Member" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Orders_Delivery_List(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Member.cs" Line="7657">'Member.Orders_Delivery_List(int)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OrdersDetail_Delivery_List(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Member.cs" Line="7881">'Member.OrdersDetail_Delivery_List(int, int)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="NSendMessage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#SendSmsMessge(System.String,System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="为格式化方法提高正确的参数" Category="Microsoft.Usage" CheckId="CA2241" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="DependsOnFix">
+             <Issue Name="MissingArgument" Certainty="75" Level="Warning" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="NSendMessage.cs" Line="62">方法 'NSendMessage.SendSmsMessge(string, string, string)' 调用 'string.Format(string, params object[])' 并且不为格式项 "{7}" 提供参数。提供的格式字符串为:“"action={0}&amp;userid={1}&amp;account={2}&amp;password={3}&amp;mobile={4}&amp;content={5}&amp;sendTime={..."”</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PDFSigner" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Sign(System.String,System.String,System.String,System.Boolean)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="PDFSigner.cs" Line="245">'PDFSigner.Sign(string, string, string, bool)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Public_Class" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetPageInfo(System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Public.cs" Line="2928">'Public_Class.GetPageInfo(int, int, int)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SecurityUtil" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DES3EncodeECB(System.Byte[],System.Byte[])" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="不要多次释放对象" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="SecurityUtil.cs" Line="429">可以在方法 'SecurityUtil.DES3EncodeECB(byte[], byte[])' 中多次释放对象 'mStream'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。: Lines: 429</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Statistics" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetKeywordSeries()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="846">'Statistics.GetKeywordSeries()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetOrdersAmountSeries()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="781">'Statistics.GetOrdersAmountSeries()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetOrdersAmountxAxis()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="725">'Statistics.GetOrdersAmountxAxis()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Member_Account_Detail()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="218">'Statistics.Member_Account_Detail()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Member_OrdersCount_Statistics()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="405">'Statistics.Member_OrdersCount_Statistics()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Member_PurchaseAmount_Statistics()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="315">'Statistics.Member_PurchaseAmount_Statistics()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Member_Purchases_Statistics()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="592">'Statistics.Member_Purchases_Statistics()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TradeIndex_Charts()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Statistics.cs" Line="661">'Statistics.TradeIndex_Charts()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Supplier" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeliveryProductStockAction(System.Collections.Generic.IList`1&lt;Glaer.Trade.B2C.Model.OrdersDeliveryGoodsInfo&gt;,System.Int32,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="5098">'Supplier.DeliveryProductStockAction(IList&lt;OrdersDeliveryGoodsInfo&gt;, int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="5126">'Supplier.DeliveryProductStockAction(IList&lt;OrdersDeliveryGoodsInfo&gt;, int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="5141">'Supplier.DeliveryProductStockAction(IList&lt;OrdersDeliveryGoodsInfo&gt;, int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="5153">'Supplier.DeliveryProductStockAction(IList&lt;OrdersDeliveryGoodsInfo&gt;, int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Get_SupplierCoin()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier.cs" Line="12378">'Supplier.Get_SupplierCoin()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Orders_Delivery_List(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="3646">'Supplier.Orders_Delivery_List(int)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OrdersDetail_Delivery_List(System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="1925">'Supplier.OrdersDetail_Delivery_List(int, int, int)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ProductExtendEditorDisplay()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier.cs" Line="8809">'Supplier.ProductExtendEditorDisplay()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+            <Message TypeName="不要多次释放对象" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier.cs" Line="8817">可以在方法 'Supplier.ProductExtendEditorDisplay()' 中多次释放对象 'RdrList'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。: Lines: 8817</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ProductStockAction(System.Int32,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="4919">'Supplier.ProductStockAction(int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="4947">'Supplier.ProductStockAction(int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="4962">'Supplier.ProductStockAction(int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="4974">'Supplier.ProductStockAction(int, string)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Sales_Statement()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="Supplier_Orders.cs" Line="6150">'Supplier.Sales_Statement()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SupplierStatistics" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#SalesAmount()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="SupplierStatistics.cs" Line="264">'SupplierStatistics.SalesAmount()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SalesAmountRanked()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="SupplierStatistics.cs" Line="454">'SupplierStatistics.SalesAmountRanked()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SalesPrice()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="SupplierStatistics.cs" Line="173">'SupplierStatistics.SalesPrice()' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ZhongXin" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#AddBreaks(System.Collections.Generic.IList`1&lt;ZhongXinBreakInfo&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code" File="ZhongXin.cs" Line="434">'ZhongXin.AddBreaks(IList&lt;ZhongXinBreakInfo&gt;)' 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\唐俊文\AppData\Local\Temp\tmp2E1F.tmp.cadir\bin\System.Web.DataVisualization.dll">
+   <Modules>
+    <Module Name="system.web.datavisualization.dll">
+     <Namespaces>
+      <Namespace Name="System.Web.UI.DataVisualization.Charting">
+       <Types>
+        <Type Name="ChartGraphics" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#FillRectangleAbs(System.Drawing.RectangleF,System.Drawing.Color,System.Web.UI.DataVisualization.Charting.ChartHatchStyle,System.String,System.Web.UI.DataVisualization.Charting.ChartImageWrapMode,System.Drawing.Color,System.Web.UI.DataVisualization.Charting.ChartImageAlignmentStyle,System.Web.UI.DataVisualization.Charting.GradientStyle,System.Drawing.Color,System.Drawing.Color,System.Int32,System.Web.UI.DataVisualization.Charting.ChartDashStyle,System.Drawing.Drawing2D.PenAlignment)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="不要多次释放对象" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning">可以在方法 'ChartGraphics.FillRectangleAbs(RectangleF, Color, ChartHatchStyle, string, ChartImageWrapMode, Color, ChartImageAlignmentStyle, GradientStyle, Color, Color, int, ChartDashStyle, PenAlignment)' 中多次释放对象 'Local0'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。</Issue>
+             <Issue Certainty="75" Level="Warning">可以在方法 'ChartGraphics.FillRectangleAbs(RectangleF, Color, ChartHatchStyle, string, ChartImageWrapMode, Color, ChartImageAlignmentStyle, GradientStyle, Color, Color, int, ChartDashStyle, PenAlignment)' 中多次释放对象 'Local0'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。</Issue>
+             <Issue Certainty="75" Level="Warning">可以在方法 'ChartGraphics.FillRectangleAbs(RectangleF, Color, ChartHatchStyle, string, ChartImageWrapMode, Color, ChartImageAlignmentStyle, GradientStyle, Color, Color, int, ChartDashStyle, PenAlignment)' 中多次释放对象 'Local0'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。</Issue>
+             <Issue Certainty="75" Level="Warning">可以在方法 'ChartGraphics.FillRectangleAbs(RectangleF, Color, ChartHatchStyle, string, ChartImageWrapMode, Color, ChartImageAlignmentStyle, GradientStyle, Color, Color, int, ChartDashStyle, PenAlignment)' 中多次释放对象 'Local0'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="System.Web.UI.DataVisualization.Charting.ChartTypes">
+       <Types>
+        <Type Name="AreaChart" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#DrawLine(System.Web.UI.DataVisualization.Charting.ChartGraphics,System.Web.UI.DataVisualization.Charting.CommonElements,System.Web.UI.DataVisualization.Charting.DataPoint,System.Web.UI.DataVisualization.Charting.Series,System.Drawing.PointF[],System.Int32,System.Single)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="不要多次释放对象" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-06-20 08:58:07Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning">可以在方法 'AreaChart.DrawLine(ChartGraphics, CommonElements, DataPoint, Series, PointF[], int, float)' 中多次释放对象 'Local17'。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200">
+   <Name>再次引发以保留堆栈详细信息</Name>
+   <Description>重复引发捕获的异常时，请使用 IL 再次引发指令保留原始堆栈详细信息。</Description>
+   <Resolution Name="Default">{0} 再次引发捕获的异常并将其显式地指定为一个参数。请改用不带参数的“throw”以保留该异常最初引发时所在的堆栈位置。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182363(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="不要多次释放对象" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>不要多次释放对象</Name>
+   <Description>可以多次调用正确实现的 Dispose 方法，而不会引发异常。但是，并不保证所有情况下都会如此。若要避免生成 System.ObjectDisposedException，您不应对一个对象多次调用 Dispose。</Description>
+   <Resolution Name="Default">可以在方法 {1} 中多次释放对象 {0}。若要避免生成 System.ObjectDisposedException，不应对一个对象多次调用 Dispose。: Lines: 429</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="为格式化方法提高正确的参数" Category="Microsoft.Usage" CheckId="CA2241">
+   <Name>为格式化方法提高正确的参数</Name>
+   <Description>为 String.Format 调用提供正确的参数数量。</Description>
+   <Resolution Name="MissingArgument">方法 {0} 调用 {1} 并且不为格式项 {2} 提供参数。提供的格式字符串为:“{3}”</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182361(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">类别</String>
+  <String Key="Certainty">确定性</String>
+  <String Key="CollapseAll">全部折叠</String>
+  <String Key="CheckId">检查 ID</String>
+  <String Key="Error">错误</String>
+  <String Key="Errors">错误</String>
+  <String Key="ExpandAll">全部展开</String>
+  <String Key="Help">帮助</String>
+  <String Key="Line">行</String>
+  <String Key="Messages">消息</String>
+  <String Key="LocationNotStoredInPdb">[位置未存储在 Pdb 中]</String>
+  <String Key="Project">项目</String>
+  <String Key="Resolution">解析</String>
+  <String Key="Rule">规则</String>
+  <String Key="RuleFile">规则文件</String>
+  <String Key="RuleDescription">规则说明</String>
+  <String Key="Source">源</String>
+  <String Key="Status">状态</String>
+  <String Key="Target">目标</String>
+  <String Key="Warning">警告</String>
+  <String Key="Warnings">警告</String>
+  <String Key="ReportTitle">代码分析报告</String>
+ </Localized>
+ <Exceptions>
+  <Exception Keyword="CA0068" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>未能找到目标程序集“System.Web.DataVisualization.dll”的调试信息。为了获得最佳的分析结果，请将包含“System.Web.DataVisualization.dll”的调试信息的 .pdb 文件放在与目标程序集相同的目录下。</ExceptionMessage>
+  </Exception>
+ </Exceptions>
+</FxCopReport>

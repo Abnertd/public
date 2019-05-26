@@ -1,0 +1,11 @@
+﻿@charset "utf-8";
+.banner { width:100%; height:418px; background-image:url(../images/banner_bg.jpg); margin:0 auto; overflow:hidden;}
+#flash { width:100%;height:418px; margin:0 auto;clear: both;padding: 0px 0px; }
+#flash a { width:100%;height:418px;margin:0 auto; display:block; background-position:center; cursor:pointer;}
+#flash1 a { background-image:url(../images/banner01.jpg); background-repeat:no-repeat; background-position:certer;  width:100%;height:418px;margin:0 auto; display:block; background-position:center;}
+#flash2 a { background-image:url(../images/banner01.jpg); background-repeat:no-repeat; background-position:certer;  width:100%;height:418px;margin:0 auto; display:block; background-position:center;}
+#flash3 a { background-image:url(../images/banner01.jpg); background-repeat:no-repeat; background-position:certer;  width:100%;height:418px;margin:0 auto; display:block; background-position:center;}
+#flash4 a { background-image:url(../images/banner01.jpg); background-repeat:no-repeat; background-position:certer;  width:100%;height:418px;margin:0 auto; display:block; background-position:center;}
+.flash_bar { text-align:center;  width:104px; margin:0 auto; height:10px; margin-top:-35px;  position:relative; left:-180px; z-index:99997;}
+.flash_bar .dq { display:block; float:left;width:12px;height:12px; border-radius:100px; background-color:#ea7d75;cursor: pointer;overflow:hidden;  margin:0 7px;}
+.flash_bar .no { display:block; float:left;width:12px;height:12px; border-radius:100px; background-color:#9b9898;cursor: pointer;overflow:hidden;  margin:0 7px; }

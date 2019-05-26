@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6524BC89-0507-4A21-A89F-522312392D39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glaer.Trade.B2C.Model</RootNamespace>
+    <AssemblyName>Glaer.Trade.B2C.Model</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutInfo.cs" />
+    <Compile Include="AddrInfo.cs" />
+    <Compile Include="ADInfo.cs" />
+    <Compile Include="ArticleInfo.cs" />
+    <Compile Include="Article_LabelInfo.cs" />
+    <Compile Include="BidInfo.cs" />
+    <Compile Include="BidUpRequireQuickInfo.cs" />
+    <Compile Include="BrandInfo.cs" />
+    <Compile Include="CategoryInfo.cs" />
+    <Compile Include="CreidtInfo.cs" />
+    <Compile Include="HomeLeftCateInfo.cs" />
+    <Compile Include="KeywordBiddingInfo.cs" />
+    <Compile Include="LogisticsInfo.cs" />
+    <Compile Include="LogisticsLineInfo.cs" />
+    <Compile Include="MemberAccountLogInfo.cs" />
+    <Compile Include="MemberAccountOrdersInfo.cs" />
+    <Compile Include="MemberCertInfo.cs" />
+    <Compile Include="MemberGatewayInfo.cs" />
+    <Compile Include="MemberInvoiceInfo.cs" />
+    <Compile Include="MemberSubAccountInfo.cs" />
+    <Compile Include="MemberTokenInfo.cs" />
+    <Compile Include="OrdersAccompanyingInfo.cs" />
+    <Compile Include="OrdersBackApplyInfo.cs" />
+    <Compile Include="OrdersBackApplyProductInfo.cs" />
+    <Compile Include="PaymentInformationInfo.cs" />
+    <Compile Include="ProductAuditReasonInfo.cs" />
+    <Compile Include="ProductNotifyInfo.cs" />
+    <Compile Include="Product_Article_LabelInfo.cs" />
+    <Compile Include="Product_LabelInfo.cs" />
+    <Compile Include="PromotionCouponRuleInfo.cs" />
+    <Compile Include="PromotionFavorGiftInfo.cs" />
+    <Compile Include="PromotionFavorPolicyInfo.cs" />
+    <Compile Include="PromotionWholeSaleInfo.cs" />
+    <Compile Include="SourcesInfo.cs" />
+    <Compile Include="ConfigInfo.cs" />
+    <Compile Include="DeliveryTimeInfo.cs" />
+    <Compile Include="DeliveryWayInfo.cs" />
+    <Compile Include="FeedBackInfo.cs" />
+    <Compile Include="FriendlyLinkInfo.cs" />
+    <Compile Include="HelpInfo.cs" />
+    <Compile Include="MemberAddressInfo.cs" />
+    <Compile Include="MemberConsumptionInfo.cs" />
+    <Compile Include="MemberFavoritesInfo.cs" />
+    <Compile Include="MemberPayLogInfo.cs" />
+    <Compile Include="OrdersGoodsTmpInfo.cs" />
+    <Compile Include="OrdersInvoiceInfo.cs" />
+    <Compile Include="ProductHistoryPriceInfo.cs" />
+    <Compile Include="ProductPriceInfo.cs" />
+    <Compile Include="ProductReviewConfigInfo.cs" />
+    <Compile Include="MemberGradeInfo.cs" />
+    <Compile Include="MemberInfo.cs" />
+    <Compile Include="MemberProfileInfo.cs" />
+    <Compile Include="NoticeInfo.cs" />
+    <Compile Include="OrdersDeliveryInfo.cs" />
+    <Compile Include="OrdersInfo.cs" />
+    <Compile Include="OrdersLogInfo.cs" />
+    <Compile Include="OrdersPaymentInfo.cs" />
+    <Compile Include="PackageInfo.cs" />
+    <Compile Include="PayInfo.cs" />
+    <Compile Include="PayWayInfo.cs" />
+    <Compile Include="ProductReviewInfo.cs" />
+    <Compile Include="ProductTypeExtendInfo.cs" />
+    <Compile Include="ProductInfo.cs" />
+    <Compile Include="ProductTagInfo.cs" />
+    <Compile Include="ProductTypeInfo.cs" />
+    <Compile Include="PromotionFavorCouponInfo.cs" />
+    <Compile Include="PromotionFavorFeeInfo.cs" />
+    <Compile Include="PromotionInfo.cs" />
+    <Compile Include="PromotionLimitInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBACPrivilegeInfo.cs" />
+    <Compile Include="RBACResourceGroupInfo.cs" />
+    <Compile Include="RBACResourceInfo.cs" />
+    <Compile Include="RBACRoleInfo.cs" />
+    <Compile Include="RBACUserGroupInfo.cs" />
+    <Compile Include="RBACUserInfo.cs" />
+    <Compile Include="ShoppingAskInfo.cs" />
+    <Compile Include="StockoutBookingInfo.cs" />
+    <Compile Include="SupplierAccountLogInfo.cs" />
+    <Compile Include="SupplierAgentProtocalInfo.cs" />
+    <Compile Include="SupplierBankInfo.cs" />
+    <Compile Include="SupplierCertInfo.cs" />
+    <Compile Include="SupplierFavoritesInfo.cs" />
+    <Compile Include="SupplierInfo.cs" />
+    <Compile Include="SupplierLogisticsInfo.cs" />
+    <Compile Include="SupplierMessageInfo.cs" />
+    <Compile Include="SupplierCategoryInfo.cs" />
+    <Compile Include="SupplierOnlineInfo.cs" />
+    <Compile Include="SupplierPriceAskInfo.cs" />
+    <Compile Include="SupplierPriceReportInfo.cs" />
+    <Compile Include="SupplierProductCategoryInfo.cs" />
+    <Compile Include="SupplierShopApplyInfo.cs" />
+    <Compile Include="SupplierShopArticleInfo.cs" />
+    <Compile Include="SupplierShopBannerInfo.cs" />
+    <Compile Include="SupplierShopCssInfo.cs" />
+    <Compile Include="SupplierShopEvaluateInfo.cs" />
+    <Compile Include="SupplierShopGradeInfo.cs" />
+    <Compile Include="SupplierShopInfo.cs" />
+    <Compile Include="SupplierShopPagesInfo.cs" />
+    <Compile Include="SupplierPurchaseInfo.cs" />
+    <Compile Include="SupplierSubAccountInfo.cs" />
+    <Compile Include="SupplierSubAccountLogInfo.cs" />
+    <Compile Include="SupplierTagInfo.cs" />
+    <Compile Include="SysCityInfo.cs" />
+    <Compile Include="SysCountyInfo.cs" />
+    <Compile Include="SysIPInfo.cs" />
+    <Compile Include="SysMenuInfo.cs" />
+    <Compile Include="SysMessageInfo.cs" />
+    <Compile Include="SysStateInfo.cs" />
+    <Compile Include="SupplierPayBackApplyInfo.cs" />
+    <Compile Include="SupplierCloseShopApplyInfo.cs" />
+    <Compile Include="SupplierGradeInfo.cs" />
+    <Compile Include="ContractInfo.cs" />
+    <Compile Include="ContractTemplateInfo.cs" />
+    <Compile Include="SupplierAddressInfo.cs" />
+    <Compile Include="ContractLogInfo.cs" />
+    <Compile Include="PayTypeInfo.cs" />
+    <Compile Include="SupplierContractTemplateInfo.cs" />
+    <Compile Include="ContractInvoiceInfo.cs" />
+    <Compile Include="SupplierInvoiceInfo.cs" />
+    <Compile Include="ContractDividedPaymentInfo.cs" />
+    <Compile Include="ContractDeliveryInfo.cs" />
+    <Compile Include="ContractPaymentInfo.cs" />
+    <Compile Include="SupplierConsumptionInfo.cs" />
+    <Compile Include="SupplierCreditLimitLogInfo.cs" />
+    <Compile Include="ZhongXinInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

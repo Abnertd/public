@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<smsconfig>
+  <config>
+    <sn>李凤月</sn>
+	<no>lifengyue</no>
+    <pwd>lifengyue</pwd>
+    <log></log>
+  </config>
+  <templates>
+    <template key="register">手机注册验证码：{verifycode}，请完成验证,短信内容请勿告知他人，如有疑问请致电400-882-6621【易耐产业金融网】</template>
+    
+    <template key="supplier_news_orders_remind">商户{suppliername}您有一笔新订单待确认，订单编号({orderssn})，请及时处理【易耐产业金融网】</template>
+    
+    <template key="supplier_confirm_orders_remind">尊敬的用户您好！您有一笔订单已被卖家确认，订单编号({orderssn})，请在24小时内确定订单并完成支付【易耐产业金融网】</template>
+    
+    <template key="supplier_expire_orders_remind">您的订单确认有30分钟将过期，订单编号：{orderssn},请及时处理。【易耐产业金融网】</template>
+    
+    <template key="supplier_dilivery_orders_remind">尊敬的用户您好！您有一笔订单卖家已发货，订单编号({orderssn})，详情请登陆用户中心查询，如有疑问请致电客服人员400-882-6621【易耐产业金融网】</template>
+    
+    <template key="member_confirm_orders_remind">商户{suppliername}您有一笔订单已被买家确认，订单编号({orderssn})【易耐产业金融网】</template>
+    
+    <template key="member_pay_orders_remind">商户{suppliername}您有一笔订单买家已完成付款，订单编号({orderssn})，请确认后及时发货【易耐产业金融网】</template>
+    
+    <template key="member_login">易耐平台验证码：{verifycode}，正在进行注册验证，请勿向任何人提供。【易耐产业金融网】</template>
+    
+    <template key="supplier_login">易耐平台验证码：{verifycode}，正在进行注册验证，请勿向任何人提供。【易耐产业金融网】</template>
+
+    <template key="orders_accept">商户{suppliername}您有一笔订单买家已完成签收，订单编号({orderssn})【易耐产业金融网】</template>
+    
+    <template key="orders_success">尊敬的用户您好！您有一笔订单已完成，订单编号({orderssn})，感谢您的使用，请及时评价【易耐产业金融网】</template>
+  </templates>
+</smsconfig>
+
+

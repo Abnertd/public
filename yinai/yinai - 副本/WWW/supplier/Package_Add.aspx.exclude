@@ -1,0 +1,143 @@
+﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+
+<%@ Register Src="~/Public/Top.ascx" TagPrefix="uctop" TagName="top" %>
+<%@ Register Src="~/Public/bottom_simple.ascx" TagPrefix="ucbottom" TagName="bottom" %>
+
+<% 
+    
+    Public_Class pub = new Public_Class();
+    ITools tools = ToolsFactory.CreateTools();
+    Supplier supplier = new Supplier();
+    supplier.Supplier_Login_Check("/supplier/package_add.aspx");
+    Addr addr = new Addr();
+
+    Session["PackageProductInfo"] = new List<PackageProductInfo>();
+    
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title><%="添加捆绑 - 会员中心 - " + pub.SEO_TITLE()%></title>
+         <meta name="Keywords" content="<% = Application["Site_Keyword"]%>"/>
+    <meta name="Description" content="<%=Application["Site_Description"]%>" />
+    
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <script src="/scripts/member.js" type="text/javascript"></script>
+    <script src="/scripts/jquery-extend-AdAdvance3.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        function SelectProduct() {
+            window.open("selectproduct.aspx", "选择商品", "height=560, width=800, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, status=no,top=100,left=300")
+        }
+
+        function product_del(product_id) {
+            $.ajax({
+                url: encodeURI("package_do.aspx?action=product_del&product_id=" + product_id + "&timer=" + Math.random()),
+                type: "get",
+                global: false,
+                async: false,
+                dataType: "html",
+                success: function(data) {
+                    $("#yhnr").html(data);
+                },
+                error: function() {
+                    alert("Error Script");
+                }
+            });
+        }
+    </script>
+   
+</head>
+<body>
+
+    <uctop:top ID="top1" runat="server" />
+    
+
+    
+    <!--主体 开始-->
+<div class="content">
+      <!--位置说明 开始-->
+      <div class="position">
+		 
+            您现在的位置 > <a href="/">首页</a> > <a href="index.aspx">会员中心</a> > <a href="package_add.aspx">添加捆绑</a>
+	</div>
+      <div class="clear"></div>
+      <!--位置说明 结束-->
+      <div class="parth">
+            <div class="ph_left">
+                        <% supplier.Get_Supplier_Left_HTML(3, 7); %>
+            </div>
+            <div class="ph_right">
+                  <div class="blk13">
+                        <h2>添加捆绑</h2>
+                        <div class="main">
+                              <form method="post" id="formadd" name="formadd" action="package_do.aspx">
+                    <input type="hidden" id="action" name="action" value="new" />
+                    
+                    <table class="formtable" width="100%">
+	                    <tr>
+		                    <th>名称</th>
+		                    <td><input name="Package_Name" type="text" id="Package_Name" size="50" maxlength="50" /></td>
+	                    </tr>
+	                    <tr>
+		                    <th>排序</th>
+		                    <td><input name="Package_Sort" type="text" id="Package_Sort" size="10" maxlength="10" value="1" /></td>
+	                    </tr>
+	                    <tr style="display:none">
+		                    <th>库存</th>
+		                    <td><input name="Package_StockAmount" type="text" id="Text1" size="30" maxlength="10" value="0" /></td>
+	                    </tr>
+	                    <tr>
+		                    <th>重量</th>
+		                    <td><input name="Package_Weight" type="text" id="Text2" size="30" maxlength="10" value="0" /></td>
+	                    </tr>
+	                    <tr>
+		                    <th>捆绑价格</th>
+		                    <td><input name="Package_Price" type="text" id="Text3" size="30" maxlength="10" value="0.00" /></td>
+	                    </tr>
+	                    <tr>
+		                    <th>上架</th>
+		                    <td><input name="Package_IsInsale" type="radio" value="1"/>
+			                    是
+			                    <input type="radio" name="Package_IsInsale" value="0" checked="checked"/>
+			                    否</td>
+	                    </tr>
+	                    <tr>
+		                    <th>商品选择</th>
+		                    <td id="yhnr"><% =new Package().ShowProduct()%></td>
+	                    </tr>
+	                    <tr>
+		                    <th></th>
+		                    <td><input name="btn_submit" type="image" src="/images/submit.gif" /></td>
+	                    </tr>
+                    </table>
+                    </form>
+                    
+                        </div>
+                  </div>
+            </div>
+            <div class="clear"></div>
+      </div> 
+</div>
+<!--主体 结束-->
+
+
+
+
+
+
+
+
+ 
+    
+  <ucbottom:bottom runat="server" ID="Bottom" />
+    
+</body>
+</html>

@@ -1,0 +1,277 @@
+﻿<%@ Page Language="C#" %>
+
+<%@ Register Src="~/Public/top_simple.ascx" TagPrefix="uctop" TagName="top" %>
+<%@ Register Src="~/Public/HomeBottom.ascx" TagPrefix="ucbottom" TagName="bottom" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+
+<% 
+    Session["Cur_Position"] = Session["Home_Position"] = "";
+    Public_Class pub = new Public_Class();
+    ITools tools = ToolsFactory.CreateTools();
+    Member member = new Member();
+    Bid Mybid = new Bid();
+    int BID = tools.CheckInt(Request["BID"]);
+    member.Member_Login_Check("/member/auction_view.aspx?BID=" + BID);
+    BidInfo entity = Mybid.GetBidByID(BID);
+    int list = tools.CheckInt(Request["list"]);
+    if (entity != null)
+    {
+        if (entity.Bid_MemberID != tools.NullInt(Session["member_id"]) || entity.Bid_MemberID == 0)
+        {
+            Response.Redirect("/member/auction_list.aspx");
+        }
+        if(entity.Bid_Type==0)
+        {
+            Response.Redirect("/member/auction_list.aspx");
+        }
+    }
+    else
+    {
+        Response.Redirect("/member/auction_list.aspx");
+    }
+%>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%="拍卖详情 - " + pub.SEO_TITLE()%></title>
+         <meta name="Keywords" content="<% = Application["Site_Keyword"]%>"/>
+    <meta name="Description" content="<%=Application["Site_Description"]%>" />
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index2.css" rel="stylesheet" type="text/css" />
+    <script src="/scripts/hdtab.js"></script>
+    <script src="/scripts/1.js"></script>
+    <script type="text/javascript" src="/scripts/common.js"></script>
+    <script type="text/javascript" src="/Public/kindeditor/kindeditor-all.js"></script>
+    <script type="text/javascript" src="/Public/kindeditor/lang/zh_CN.js"></script>
+    <link href="/scripts/jquery-ui/css/jquery-ui.css" rel="stylesheet" />
+    <script src="/scripts/jquery-ui/jquery-ui.js"></script>
+    <script src="/scripts/jquery-ui/jquery.ui.datepicker-zh-CN.js"></script>
+    <script>
+        function confirmdelete(gotourl) {
+            if ($("#dialog-confirmdelete").length == 0) {
+                $("body").append("<div id=\"dialog-confirmdelete\" title=\"确定要删除吗?\"><p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:0 7px 20px 0;\"></span>记录删除后将无法恢复，您确定要删除吗？</p>");
+            }
+            $("#dialog-confirmdelete").dialog({
+                modal: true,
+                width: 400,
+                buttons: {
+                    "确认": function () {
+                        $(this).dialog("close");
+                        location = gotourl;
+                    },
+                    "取消": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#dialog-confirmdelete").dialog({
+                close: function () {
+                    $(this).dialog("destroy");
+                }
+            });
+        }
+
+        function ShowList(obj) {
+            if (obj == 1) {
+                $("#aa01").hide();
+                $("#aa03").hide();
+                $("#aa02").show();
+                $("#a02").removeClass().addClass("on");
+                $("#a01").removeClass().addClass("");
+                $("#a03").removeClass().addClass("");
+
+            }
+            else if (obj == 2) {
+                $("#aa01").hide();
+                $("#aa02").hide();
+                $("#aa03").show();
+                $("#a03").removeClass().addClass("on");
+                $("#a01").removeClass().addClass("");
+                $("#a02").removeClass().addClass("");
+            }
+            else {
+                $("#aa03").hide();
+                $("#aa02").hide();
+                $("#aa01").show();
+                $("#a02").removeClass().addClass("");
+                $("#a03").removeClass().addClass("");
+                $("#a01").removeClass().addClass("on");
+            }
+        }
+
+        window.onload = function () {
+            ShowList(<%=list%>);
+        };
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            var byt = $(".testbox li");
+            var box = $(".boxshow")
+            byt.hover(
+                 function () {
+                     $(this).find(".boxshow").show(); $(this).find(".a3").attr("class", "a3 a3h");
+                 },
+                function () {
+                    $(this).find(".boxshow").hide(); $(this).find(".a3h").attr("class", "a3");
+                }
+            );
+        });
+    </script>
+
+    <style>
+        .blk11_1 h3 {
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #dddddd;
+            border-top: 1px solid #dddddd;
+            padding: 10px 0 10px 10px;
+            display: block;
+            margin-top: 30px;
+            margin-left: 50px;
+            width: 890px;
+        }
+
+        .b11_main_1 {
+            padding: 20px 0 0 50px;
+        }
+    </style>
+</head>
+<body>
+    <uctop:top runat="server" ID="HomeTop" />
+
+    <div class="webwrap">
+        <div class="content02" style="margin-bottom: 20px;">
+            <div class="position">当前位置 >  <a href="/member/index.aspx">我是买家</a> > <a href="/member/auction_list.aspx">拍卖列表</a> ><span>拍卖详情</span></div>
+            <div class="partd_1">
+                <div class="pd_left">
+                    <% =member.Member_Left_HTML(2, 2) %>
+                </div>
+                <div class="pd_right">
+
+                    <div class="blk02">
+                        <h2>
+                            <ul>
+                                <li id="a01" onclick="ShowList(0);">拍卖信息<img src="/images/icon15.jpg"></li>
+                                <li id="a02" onclick="ShowList(1);">商品清单<img src="/images/icon15.jpg"></li>
+                                <li id="a03" onclick="ShowList(2);">附件列表<img src="/images/icon15.jpg"></li>
+                            </ul>
+                        </h2>
+
+                        <div class="b14_1_main" id="aa01" style="border: 0px solid #dddddd; display: none;">
+                            <table width="900" border="0" cellspacing="0" cellpadding="0" style="border-bottom: 0px solid #eeeeee; margin-left: 50px;">
+                                <tr>
+                                    <td width="100" class="name">公告标题</td>
+                                    <td width="400"><span><a><%=entity.Bid_Title %></a></span></td>
+                                    <td width="100" class="name">拍卖用户</td>
+                                    <td width="300"><span><a><%=entity.Bid_MemberCompany %></a></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="name">报名时间</td>
+                                    <td><%=entity.Bid_EnterStartTime.ToString("yyyy-MM-dd") %>至<%=entity.Bid_EnterEndTime.ToString("yyyy-MM-dd") %></td>
+                                    <td class="name">竞价时间</td>
+                                    <td><%=entity.Bid_BidStartTime.ToString("yyyy-MM-dd") %>至<%=entity.Bid_BidEndTime.ToString("yyyy-MM-dd") %></td>
+                                </tr>
+                                <tr>
+                                    <td class="name">报价轮次</td>
+                                    <td><%=entity.Bid_Number %>次</td>
+                                    <td class="name">保证金</td>
+                                    <td><%=entity.Bid_Bond %>元</td>
+                                </tr>
+                                <tr>
+                                    <td class="name">拍卖状态</td>
+                                    <td><span><a><%=Mybid.Bid_Status(entity) %></a></span></td>
+                                    <%if (entity.Bid_SupplierID > 0)
+                                      {%>
+                                    <td class="name">中标单位</td>
+                                    <td><%=entity.Bid_SupplierCompany %></td>
+                                    <%}
+                                      else
+                                      { %>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <%} %>
+                                </tr>
+                            </table>
+                            <div class="blk11_1" style="margin-top: 0px;">
+                                <h3>公告内容</h3>
+                                <div class="b11_main_1">
+                                    <%=entity.Bid_Content %>
+                                </div>
+                            </div>
+                            <div class="b02_main">
+                                <ul style="width: 850px;">
+                                    <%if (entity.Bid_Status == 0)
+                                      {%>
+                                    <li><a href="/member/auction_edit.aspx?BID=<%=BID%>" class="a05" style="margin-left: 0px; float: left;">修改</a><a href="/member/bid_do.aspx?action=Release&Bid_ID=<%=BID%>" class="a05" style="margin-left: 350px;">发布</a></li>
+                                    <%}
+                                      else
+                                      {
+                                          if (entity.Bid_Status == 1 && DateTime.Compare(DateTime.Now, entity.Bid_EnterEndTime) < 0)
+                                          {%>
+                                    <li><a href="/member/bid_do.aspx?action=Revoke&Bid_ID=<%=BID%>" class="a05" style="margin-left: 0px; float: left;">撤销</a></li>
+                                    <%}
+                              } %>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="b02_main" id="aa02" style="display: none;">
+                            <div class="blk14_1" style="margin-top: 0px;">
+                                <div class="b14_1_main">
+                                    <table width="974" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            
+                                            <td width="156" class="name">物料编号</td>
+                                            <td width="269" class="name">商品名称</td>
+                                            <td width="154" class="name">采购数量</td>
+                                            <td width="100" class="name">起拍价格</td>
+                                            <td width="127" class="name">操作</td>
+                                        </tr>
+                                        <%Mybid.AuctionProductList(entity.BidProducts, entity.Bid_Status, 0); %>
+                                    </table>
+                                    <%if (entity.Bid_Status == 0)
+                                      {%>
+                                    <a href="/member/auction_product_add.aspx?BID=<%=BID %>" class="more4">新增商品</a>
+                                    <%} %>
+                                </div>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="b02_main" id="aa03" style="display: none;">
+                            <div class="blk14_1" style="margin-top: 0px;">
+                                <div class="b14_1_main">
+                                    <table width="974" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="100" class="name">序号</td>
+                                            <td width="156" class="name">附件名称</td>
+                                            <td width="269" class="name">文件格式</td>
+                                            <td width="154" class="name">大小</td>
+                                            <td width="127" class="name">操作</td>
+                                        </tr>
+                                       <%-- <%Mybid.BidAttachmentsList(entity.BidAttachments, entity.Bid_Status); %>--%>
+                                    </table>
+                                    <%if (entity.Bid_Status == 0)
+                                      {%>
+                                    <a href="/member/bid_Attachments_add.aspx?BID=<%=BID %>" class="more4">新增附件</a>
+                                    <%} %>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <ucbottom:bottom runat="server" ID="Bottom" />
+</body>
+</html>

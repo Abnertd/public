@@ -1,0 +1,65 @@
+
+--------------2017-06-28 14:16:46-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo></subAccNo></stream>
+--------------2017-06-28 14:17:08-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31
+--------------2017-06-28 15:09:36-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo></subAccNo></stream>
+--------------2017-06-28 15:09:57-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31
+--------------2017-06-28 15:21:13-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo></subAccNo></stream>
+--------------2017-06-28 15:21:34-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31
+--------------2017-06-28 15:21:36-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo></subAccNo></stream>
+--------------2017-06-28 15:21:57-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31
+--------------2017-06-28 17:32:31-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo>123213123123</subAccNo></stream>
+--------------2017-06-28 17:32:52-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31
+--------------2017-06-28 17:34:09-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo></subAccNo></stream>
+--------------2017-06-28 17:34:30-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31
+--------------2017-06-28 17:34:32-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo></subAccNo></stream>
+--------------2017-06-28 17:34:53-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31
+--------------2017-06-28 17:34:56-------------
+请求：http://192.168.0.112:6789/
+<?xml version="1.0" encoding="GBK" ?><stream>	<action>DLSBALQR</action>	<userName>lierzl</userName>	<accountNo>8110701013900006690</accountNo>	<subAccNo></subAccNo></stream>
+--------------2017-06-28 17:35:17-------------
+错误记录：无法连接到远程服务器
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 ZhongXinUtil.HttpUtil.SendRequest(String postData, String postURL, String encodingStr) 位置 g:\工作项目\程序\易耐网\Source\yinai\WWW\App_Code\ZhongXin\ZhongXinHttpUtil.cs:行号 31

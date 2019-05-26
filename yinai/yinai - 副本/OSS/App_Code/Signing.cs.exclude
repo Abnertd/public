@@ -1,0 +1,385 @@
+﻿using System;
+using System.Text;
+using System.Data;
+using System.Configuration;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using Glaer.Trade.Util.SQLHelper;
+using Glaer.Trade.B2C.Model;
+using Glaer.Trade.B2C.ORM;
+using Glaer.Trade.Util.Encrypt;
+using Glaer.Trade.Util.Tools;
+using Glaer.Trade.Util.TraceError;
+using Glaer.Trade.Util.Mail;
+using Glaer.Trade.B2C.BLL.MEM;
+using Glaer.Trade.B2C.BLL.Product;
+
+/// <summary>
+///Member 的摘要说明
+/// </summary>
+public class Signing
+{
+    //定义ASP.NET内置对象
+    private System.Web.HttpResponse Response;
+    private System.Web.HttpRequest Request;
+    private System.Web.HttpServerUtility Server;
+    private System.Web.SessionState.HttpSessionState Session;
+    private System.Web.HttpApplicationState Application;
+    private ISQLHelper DBHelper;
+    private ITools tools;
+    private IEncrypt encrypt;
+    private ISupplier MySupplier;
+    private ISigning MyBLL;
+    public Signing()
+    {
+        //初始化ASP.NET内置对象
+        Response = System.Web.HttpContext.Current.Response;
+        Request = System.Web.HttpContext.Current.Request;
+        Server = System.Web.HttpContext.Current.Server;
+        Session = System.Web.HttpContext.Current.Session;
+        Application = System.Web.HttpContext.Current.Application;
+        DBHelper = SQLHelperFactory.CreateSQLHelper();
+        tools = ToolsFactory.CreateTools();
+        MySupplier = SupplierFactory.CreateSupplier();
+        encrypt = EncryptFactory.CreateEncrypt();
+        MyBLL = SigningFactory.CreateSigning();
+    }
+
+
+    public string Get_Type(string Status)
+    {
+        string MBR_CERT_TYPE = "";
+        switch (Status)
+        {
+            case "A":
+                MBR_CERT_TYPE = "身份证";
+                break;
+            case "P":
+                MBR_CERT_TYPE = "全国组织机构代码";
+                break;
+            case "R":
+                MBR_CERT_TYPE = "营业执照号码";
+                break;
+            case "W":
+                MBR_CERT_TYPE = "对公营业执照号码";
+                break;
+            case "Z":
+                MBR_CERT_TYPE = "其他（建行客户编号）";
+                break;
+        }
+        return MBR_CERT_TYPE;
+    }
+    /// <summary>
+    /// 签约状态 0-正常；1-暂停；2-解约
+    /// </summary>
+    /// <param name="Status"></param>
+    /// <returns></returns>
+    public string Get_MBR_STS(int Status)
+    {
+        string MBR_STS = "";
+        switch (Status)
+        {
+            case 0:
+                MBR_STS = "正常";
+                break;
+            case 1:
+                MBR_STS = "暂停";
+                break;
+            case 2:
+                MBR_STS = "解约";
+                break;
+            case 3:
+                MBR_STS = "待签约";
+                break;
+        }
+        return MBR_STS;
+    }
+
+
+
+    public SigningInfo GetSigningByID(int ID)
+    {
+        return MyBLL.GetSigningByID(ID);
+    }
+
+    public string GetSignings()
+    {
+
+        QueryInfo Query = new QueryInfo();
+        string keyword = tools.CheckStr(Request["keyword"]);
+        Query.PageSize = tools.CheckInt(Request["rows"]);
+        Query.CurrentPage = tools.CheckInt(Request["page"]);
+        Query.ParamInfos.Add(new ParamInfo("AND", "str", "SigningInfo.Signing_Site", "=", Public.GetCurrentSite()));
+        if (keyword != "")
+        {
+            Query.ParamInfos.Add(new ParamInfo("AND", "str", "SigningInfo.MBR_NAME", "like", keyword));
+        }
+
+        Query.OrderInfos.Add(new OrderInfo(tools.CheckStr(Request["sidx"]), tools.CheckStr(Request["sord"])));
+
+        PageInfo pageinfo = MyBLL.GetPageInfo(Query);
+        IList<SigningInfo> entitys = MyBLL.GetSignings(Query);
+        SupplierInfo supplier = null;
+        if (entitys != null)
+        {
+
+            StringBuilder jsonBuilder = new StringBuilder();
+            jsonBuilder.Append("{\"page\":" + pageinfo.CurrentPage + ",\"total\":" + pageinfo.PageCount + ",\"records\":" + pageinfo.RecordCount + ",\"rows\"");
+            jsonBuilder.Append(":[");
+            foreach (SigningInfo entity in entitys)
+            {
+
+                jsonBuilder.Append("{\"id\":" + entity.Signing_ID + ",\"cell\":[");
+                //各字段
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(entity.Signing_ID);
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                supplier = MySupplier.GetSupplierByID(entity.Supplier_ID, Public.GetUserPrivilege());
+                if (supplier != null)
+                {
+                    jsonBuilder.Append(supplier.Supplier_CompanyName);
+                }
+                else
+                {
+                    jsonBuilder.Append(entity.Supplier_ID);
+                }
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(Public.JsonStr(entity.SPOT_SIT_NO));
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(Get_Type(entity.MBR_CERT_TYPE));
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(Public.JsonStr(entity.MBR_CERT_NO));
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(Public.JsonStr(entity.MBR_NAME));
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(Public.JsonStr(entity.MBR_CONTACT));
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(entity.MBR_PHONE_NUM);
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(entity.MBR_ADDR);
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                if (entity.Signing_IsActive == 0)
+                {
+                    jsonBuilder.Append(Public.JsonStr("未审核"));
+                }
+                else
+                {
+                    jsonBuilder.Append(Public.JsonStr("已审核"));
+                }
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                if (entity.Signing_TSState == 0)
+                {
+                    jsonBuilder.Append(Public.JsonStr("未推送"));
+                }
+                else
+                {
+                    jsonBuilder.Append(Public.JsonStr("已推送"));
+                }
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                jsonBuilder.Append(Get_MBR_STS(entity.MBR_STS));
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Append("\"");
+                if (entity.Signing_IsActive == 1)//平台已审核
+                {
+                    if (entity.SPOT_SIT_NO != "")//席位号不为空
+                    {
+                        if (entity.MBR_STS == 3)//0未推送数据,1已推送
+                        {
+                            jsonBuilder.Append("<img src=\\\"/images/btn_add.gif\\\" alt=\\\"推送数据\\\" align=\\\"absmiddle\\\"> <a  href=\\\"javascript:void(0);\\\" onclick=\\\"window.open('signing_do.aspx?action=tuisong&Signing_ID=" + entity.Signing_ID + "', '_self')\\\">推送数据</a> ");
+                        }
+                        //if (entity.Signing_QYState == 4)//未签约
+                        //{
+                        //    jsonBuilder.Append("<img src=\\\"/images/btn_add.gif\\\" alt=\\\"获取签约状态\\\" align=\\\"absmiddle\\\"> <a  href=\\\"javascript:void(0);\\\" onclick=\\\"window.open('signing_do.aspx?action=qianyue&Signing_ID=" + entity.Signing_ID + "', '_self')\\\">获取签约状态</a> ");
+                        //    //jsonBuilder.Append("<a href=\\\"?action=show&review_id=" + entity.Product_Review_ID + "\\\">未审核</a>");
+                        //}
+                    }
+                    if (entity.SPOT_SIT_NO == "")
+                    {
+                        jsonBuilder.Append("<img src=\\\"/images/btn_add.gif\\\" alt=\\\"分配席位号\\\" align=\\\"absmiddle\\\"> <a  href=\\\"javascript:void(0);\\\" onclick=\\\"window.open('signing_do.aspx?action=fenpei&Signing_ID=" + entity.Signing_ID + "', '_self')\\\">分配席位号</a> ");
+                    }
+                }
+                jsonBuilder.Append("<img src=\\\"/images/btn_add.gif\\\" alt=\\\"修改\\\" align=\\\"absmiddle\\\"> <a href=\\\"signing_edit.aspx?Signing_ID=" + entity.Signing_ID + "\\\" title=\\\"修改\\\">修改</a> ");
+                jsonBuilder.Append("\",");
+
+                jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+                jsonBuilder.Append("]},");
+
+            }
+            jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+            jsonBuilder.Append("]");
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+        else
+        {
+            return null;
+        }
+    }
+    public void EditSigning()
+    {
+
+        int Signing_ID = tools.CheckInt(Request.Form["Signing_ID"]);
+        string MBR_CERT_TYPE = tools.CheckStr(Request.Form["MBR_CERT_TYPE"]);
+        string MBR_CERT_NO = tools.CheckStr(Request.Form["MBR_CERT_NO"]);
+        string MBR_NAME = tools.CheckStr(Request.Form["MBR_NAME"]);
+        int MBR_SPE_ACCT_BKID = tools.CheckInt(Request.Form["MBR_SPE_ACCT_BKID"]);
+        string MBR_SPE_ACCT_NO = tools.CheckStr(Request.Form["MBR_SPE_ACCT_NO"]);
+        string MBR_CONTACT = tools.CheckStr(Request.Form["MBR_CONTACT"]);
+        string MBR_PHONE_NUM = tools.CheckStr(Request.Form["MBR_PHONE_NUM"]);
+        string MBR_ADDR = tools.CheckStr(Request.Form["MBR_ADDR"]);
+        int Signing_IsActive = tools.CheckInt(Request.Form["Signing_IsActive"]);
+        DateTime SIGNED_DATE = tools.NullDate(Request["SIGNED_DATE"]);
+        DateTime DIS_SGN_DATE = tools.NullDate(Request["DIS_SGN_DATE"]);
+        if (Signing_ID == 0)
+        {
+            Public.Msg("error", "错误信息", "请选择您要修改的信息！", false, "{back}");
+        }
+        if (MBR_CERT_TYPE == "")
+        {
+            Public.Msg("info", "提示信息", "请选择会员证件类型", false, "{back}");
+        }
+        if (MBR_CERT_NO == "")
+        {
+            Public.Msg("info", "提示信息", "请将会员证件号码填写完整", false, "{back}");
+        }
+        if (MBR_NAME == "")
+        {
+            Public.Msg("info", "提示信息", "请将会员名称填写完整", false, "{back}");
+        }
+        if (MBR_CONTACT == "")
+        {
+            Public.Msg("info", "提示信息", "请将会员联系人填写完整", false, "{back}");
+        }
+        if (MBR_PHONE_NUM != "")
+        {
+            if (Public.Checkmobile(MBR_PHONE_NUM) == false)
+            {
+                Public.Msg("info", "提示信息", "会员联系手机错误", false, "{back}");
+            }
+        }
+        if (MBR_ADDR == "")
+        {
+            Public.Msg("info", "提示信息", "请将会员地址填写完整", false, "{back}");
+        }
+
+
+        SigningInfo entity = GetSigningByID(Signing_ID);
+        if (entity != null)
+        {
+
+            entity.MBR_CERT_TYPE = MBR_CERT_TYPE;
+            entity.MBR_CERT_NO = MBR_CERT_NO;
+            entity.MBR_NAME = MBR_NAME;
+            entity.MBR_SPE_ACCT_BKID = MBR_SPE_ACCT_BKID;
+            entity.MBR_SPE_ACCT_NO = MBR_SPE_ACCT_NO;
+            entity.MBR_CONTACT = MBR_CONTACT;
+            entity.MBR_PHONE_NUM = MBR_PHONE_NUM;
+            entity.MBR_ADDR = MBR_ADDR;
+            entity.SIGNED_DATE = SIGNED_DATE;
+            entity.DIS_SGN_DATE = DIS_SGN_DATE;
+            entity.Signing_IsActive = Signing_IsActive;
+
+            if (MyBLL.EditSigning(entity))
+            {
+                Public.Msg("positive", "操作成功", "操作成功", true, "Signing_list.aspx");
+            }
+            else
+            {
+                Public.Msg("error", "错误信息", "操作失败，请稍后重试", false, "{back}");
+            }
+        }
+        else
+        {
+            Public.Msg("error", "错误信息", "操作失败，请稍后重试", false, "{back}");
+        }
+    }
+    /// <summary>
+    /// 分配席位号
+    /// </summary>
+    public void FeiPeiSigning(int Signing_ID)
+    {
+
+
+        if (Signing_ID == 0)
+        {
+            Public.Msg("error", "错误信息", "请选择您要修改的信息！", false, "{back}");
+        }
+
+        SigningInfo entity = GetSigningByID(Signing_ID);
+        if (entity != null)
+        {
+            //分配8位数字的席位号
+            Random ra = new Random();
+            string iscz = "8" + ra.Next(1000000, 9999999);
+            //生成子账户
+            bool ismatch = true;
+            while (ismatch == true)
+            {
+                int SigningID = (int)DBHelper.ExecuteScalar("select count(Signing_ID) from Signing where SPOT_SIT_NO ='" + iscz + "'");
+
+                if (SigningID > 0)
+                {
+                    iscz = "8" + ra.Next(1000000, 9999999);
+                }
+                else
+                {
+                    ismatch = false;
+                }
+            }
+
+            if (entity.SPOT_SIT_NO == "")
+            {
+                entity.SPOT_SIT_NO = iscz;//8位数字的席位号
+                if (MyBLL.EditSigning(entity))
+                {
+                    Public.Msg("positive", "操作成功", "操作成功", false, "{back}");
+                }
+                else
+                {
+                    Public.Msg("error", "错误信息", "操作失败，请稍后重试", false, "{back}");
+                }
+            }
+            else
+            {
+                Public.Msg("error", "错误信息", "操作失败，请稍后重试", false, "{back}");
+            }
+
+        }
+        else
+        {
+            Public.Msg("error", "错误信息", "操作失败，请稍后重试", false, "{back}");
+        }
+    }
+
+
+}

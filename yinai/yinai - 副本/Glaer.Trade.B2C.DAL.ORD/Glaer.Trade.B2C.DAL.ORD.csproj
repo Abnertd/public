@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{472F356C-97F0-425D-AEF0-9221BCB8D6E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glaer.Trade.B2C.DAL.ORD</RootNamespace>
+    <AssemblyName>Glaer.Trade.B2C.DAL.ORD</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Glaer.Trade.Util.Encrypt">
+      <HintPath>E:\NewBin\Glaer.Trade.Util.Encrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="Glaer.Trade.Util.SQLHelper">
+      <HintPath>E:\NewBin\Glaer.Trade.Util.SQLHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Glaer.Trade.Util.Tools">
+      <HintPath>E:\NewBin\Glaer.Trade.Util.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeliveryTime.cs" />
+    <Compile Include="DeliveryTimeFactory.cs" />
+    <Compile Include="DeliveryWay.cs" />
+    <Compile Include="DeliveryWayFactory.cs" />
+    <Compile Include="IDeliveryTime.cs" />
+    <Compile Include="IDeliveryWay.cs" />
+    <Compile Include="IOrdersAccompanying.cs" />
+    <Compile Include="IOrdersBackApply.cs" />
+    <Compile Include="IOrdersBackApplyProduct.cs" />
+    <Compile Include="IOrdersDelivery.cs" />
+    <Compile Include="IOrdersGoodsTmp.cs" />
+    <Compile Include="IOrdersInvoice.cs" />
+    <Compile Include="IOrdersLog.cs" />
+    <Compile Include="IOrdersPayment.cs" />
+    <Compile Include="IPaymentInformation.cs" />
+    <Compile Include="IPayWay.cs" />
+    <Compile Include="IOrders.cs" />
+    <Compile Include="Orders.cs" />
+    <Compile Include="OrdersAccompanying.cs" />
+    <Compile Include="OrdersAccompanyingFactory.cs" />
+    <Compile Include="OrdersBackApply.cs" />
+    <Compile Include="OrdersBackApplyFactory.cs" />
+    <Compile Include="OrdersBackApplyProduct.cs" />
+    <Compile Include="OrdersBackApplyProductFactory.cs" />
+    <Compile Include="OrdersDelivery.cs" />
+    <Compile Include="OrdersDeliveryFactory.cs" />
+    <Compile Include="OrdersFactory.cs" />
+    <Compile Include="OrdersGoodsTmp.cs" />
+    <Compile Include="OrdersGoodsTmpFactory.cs" />
+    <Compile Include="OrdersInvoice.cs" />
+    <Compile Include="OrdersInvoiceFactory.cs" />
+    <Compile Include="OrdersLog.cs" />
+    <Compile Include="OrdersLogFactory.cs" />
+    <Compile Include="OrdersPaymentFactory.cs" />
+    <Compile Include="OrdersPayment.cs" />
+    <Compile Include="PaymentInformation.cs" />
+    <Compile Include="PaymentInformationFactory.cs" />
+    <Compile Include="PayWay.cs" />
+    <Compile Include="PayWayFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IContract.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="ContractFactory.cs" />
+    <Compile Include="IContractTemplate.cs" />
+    <Compile Include="ContractTemplate.cs" />
+    <Compile Include="ContractTemplateFactory.cs" />
+    <Compile Include="IContractLog.cs" />
+    <Compile Include="ContractLog.cs" />
+    <Compile Include="ContractLogFactory.cs" />
+    <Compile Include="IPayType.cs" />
+    <Compile Include="PayType.cs" />
+    <Compile Include="PayTypeFactory.cs" />
+    <Compile Include="IContractDividedPayment.cs" />
+    <Compile Include="ContractDividedPaymen.cs" />
+    <Compile Include="ContractDividedPaymentFactory.cs" />
+    <Compile Include="IContractDelivery.cs" />
+    <Compile Include="ContractDelivery.cs" />
+    <Compile Include="ContractDeliveryFactory.cs" />
+    <Compile Include="ContractPayment.cs" />
+    <Compile Include="ContractPaymentFactory.cs" />
+    <Compile Include="IContractPayment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Glaer.Trade.B2C.Model\Glaer.Trade.B2C.Model.csproj">
+      <Project>{6524BC89-0507-4A21-A89F-522312392D39}</Project>
+      <Name>Glaer.Trade.B2C.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Glaer.Trade.B2C.ORM\Glaer.Trade.B2C.ORM.csproj">
+      <Project>{CE144363-CB6C-4512-A798-B3032FBF5AB0}</Project>
+      <Name>Glaer.Trade.B2C.ORM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

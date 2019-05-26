@@ -1,0 +1,184 @@
+﻿<%@ Page Language="C#" ContentType="text/html" ResponseEncoding="utf-8" %>
+
+<%@ Import Namespace="Glaer.Trade.Util.Tools" %>
+<%@ Import Namespace="Glaer.Trade.B2C.Model" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script runat="server">
+    
+    private Signing myApp;
+    private ITools tools;
+
+    private string MCH_NO, MBR_CERT_TYPE, MBR_CERT_NO, SPOT_SIT_NO, FUTURE_SIT_NO, MBR_NAME, MBR_SPE_ACCT_NO, MBR_CONTACT, MBR_PHONE_NUM, MBR_ADDR, RMRK, Signing_Site;
+    private int Signing_ID, Supplier_ID, MBR_SPE_ACCT_BKID, MBR_INOUT_AMT_SVC_DRAWEE, MBR_INOUT_AMT_SVC_RCV_STY, MBR_STS, Signing_IsActive;
+    private DateTime SIGNED_DATE, DIS_SGN_DATE;
+    private double MBR_ANNUAL_FEE_AMT, MBR_INOUT_AMT_SVC_AMT;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        myApp = new Signing();
+        tools = ToolsFactory.CreateTools();
+        Public.CheckLogin("all");
+        Signing_ID = tools.CheckInt(Request.QueryString["Signing_ID"]);
+        SigningInfo entity = myApp.GetSigningByID(Signing_ID);
+        if (entity == null)
+        {
+            Public.Msg("error", "错误信息", "记录不存在", false, "{back}");
+            Response.End();
+        }
+        else
+        {
+            Signing_ID = entity.Signing_ID;
+            Supplier_ID = entity.Supplier_ID;
+            MCH_NO = entity.MCH_NO;
+            MBR_CERT_TYPE = entity.MBR_CERT_TYPE;
+            MBR_CERT_NO = entity.MBR_CERT_NO;
+            SPOT_SIT_NO = entity.SPOT_SIT_NO;
+            FUTURE_SIT_NO = entity.FUTURE_SIT_NO;
+            MBR_NAME = entity.MBR_NAME;
+            MBR_SPE_ACCT_NO = entity.MBR_SPE_ACCT_NO;
+            MBR_SPE_ACCT_BKID = entity.MBR_SPE_ACCT_BKID;
+            MBR_CONTACT = entity.MBR_CONTACT;
+            MBR_PHONE_NUM = entity.MBR_PHONE_NUM;
+            MBR_ADDR = entity.MBR_ADDR;
+            MBR_ANNUAL_FEE_AMT = entity.MBR_ANNUAL_FEE_AMT;
+            MBR_INOUT_AMT_SVC_AMT = entity.MBR_INOUT_AMT_SVC_AMT;
+            MBR_INOUT_AMT_SVC_DRAWEE = entity.MBR_INOUT_AMT_SVC_DRAWEE;
+            MBR_INOUT_AMT_SVC_RCV_STY = entity.MBR_INOUT_AMT_SVC_RCV_STY;
+            SIGNED_DATE = entity.SIGNED_DATE;
+            DIS_SGN_DATE = entity.DIS_SGN_DATE;
+            MBR_STS = entity.MBR_STS;
+            RMRK = entity.RMRK;
+            Signing_IsActive = entity.Signing_IsActive;
+            Signing_Site = entity.Signing_Site;
+        }
+    }
+
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <link href="/CSS/style.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Public/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+    <div class="content_div">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="content_table">
+            <tr>
+                <td class="content_title">
+                    修改页面
+                </td>
+            </tr>
+            <tr>
+                <td class="content_content">
+                    <form id="formadd" name="formadd" method="post" action="signing_do.aspx">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="cell_table">
+                        <tr>
+                            <td class="cell_title">
+                                证件类型
+                            </td>
+                            <td class="cell_content">
+                              <select name="MBR_CERT_TYPE" id="MBR_CERT_TYPE">
+                                        <option value="A" <% =Public.CheckedSelected(MBR_CERT_TYPE.ToString(), "A")%>>身份证</option>
+                                        <option value="P" <% =Public.CheckedSelected(MBR_CERT_TYPE.ToString(), "P")%>>全国组织机构代码</option>
+                                        <option value="R"  <% =Public.CheckedSelected(MBR_CERT_TYPE.ToString(), "R")%>>营业执照号码</option>
+                                        <option value="W" <% =Public.CheckedSelected(MBR_CERT_TYPE.ToString(), "W")%>>对公营业执照号码</option>
+                                        <option value="Z" <% =Public.CheckedSelected(MBR_CERT_TYPE.ToString(), "Z")%>>其他（建行客户编号）</option>
+                                    </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell_title">
+                                证件号码
+                            </td>
+                            <td class="cell_content">
+                                <input name="MBR_CERT_NO" id="MBR_CERT_NO" size="50" maxlength="100" value="<% =MBR_CERT_NO%>" />
+                            </td>
+                        </tr>
+                      <tr>
+                            <td class="cell_title">
+                                单位名称
+                            </td>
+                            <td class="cell_content">
+                                <input name="MBR_NAME" id="MBR_NAME" size="50" maxlength="100" value="<% =MBR_NAME%>" />
+                            </td>
+                        </tr>   
+                            <tr>
+                            <td class="cell_title">
+                                签约账号
+                            </td>
+                            <td class="cell_content">
+                              <input type="radio" name="MBR_SPE_ACCT_BKID" id="MBR_SPE_ACCT_BKID" value="0" <% =Public.CheckedRadio(MBR_SPE_ACCT_BKID.ToString(), "0")%>
+                            style="width: 27px;"/>建行 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                type="radio" name="MBR_SPE_ACCT_BKID" id="MBR_SPE_ACCT_BKID1" style="width: 27px;" value="1" <% =Public.CheckedRadio(MBR_SPE_ACCT_BKID.ToString(), "1")%>/>非建行
+                            </td>
+                        </tr>           
+                            <tr>
+                            <td class="cell_title">
+                                签约账号
+                            </td>
+                            <td class="cell_content">
+                                <input name="MBR_SPE_ACCT_NO" id="MBR_SPE_ACCT_NO" size="50" maxlength="100" value="<% =MBR_SPE_ACCT_NO%>" />
+                            </td>
+                        </tr>           
+                          <tr>
+                            <td class="cell_title">
+                                联系人
+                            </td>
+                            <td class="cell_content">
+                                <input name="MBR_CONTACT" id="MBR_CONTACT" size="50" maxlength="100" value="<% =MBR_CONTACT%>" />
+                            </td>
+                        </tr>             <tr>
+                            <td class="cell_title">
+                                手机
+                            </td>
+                            <td class="cell_content">
+                                <input name="MBR_PHONE_NUM" id="MBR_PHONE_NUM" size="50" maxlength="100" value="<% =MBR_PHONE_NUM%>" />
+                            </td>
+                        </tr>             <tr>
+                            <td class="cell_title">
+                                地址
+                            </td>
+                            <td class="cell_content">
+                                <input name="MBR_ADDR" id="MBR_ADDR" size="50" maxlength="100" value="<% =MBR_ADDR%>" />
+                            </td>
+                        </tr>       <%--      <tr>
+                            <td class="cell_title">
+                                签约日期
+                            </td>
+                            <td class="cell_content">
+                                <% =SIGNED_DATE.ToShortDateString()%>
+                            </td>
+                        </tr>--%>
+                        
+                        <tr>
+                            <td class="cell_title">
+                                平台审核
+                            </td>
+                            <td class="cell_content">
+                                <input name="Signing_IsActive" type="radio" id="Signing_IsActive" value="1" <% =Public.CheckedRadio(Signing_IsActive.ToString(), "1")%> />已审核
+                                <input type="radio" name="Signing_IsActive" id="Signing_IsActive2" value="0" <% =Public.CheckedRadio(Signing_IsActive.ToString(), "0")%> />未审核
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                        <tr>
+                            <td align="right">
+                                <input type="hidden" id="action" name="action" value="renew" />
+                                <input type="hidden" id="Signing_ID" name="Signing_ID" value="<% =Signing_ID%>" />
+                                <input type="hidden" id="SIGNED_DATE" name="SIGNED_DATE" value="<% =SIGNED_DATE%>" />
+                                <input type="hidden" id="DIS_SGN_DATE" name="DIS_SGN_DATE" value="<% =DIS_SGN_DATE%>" />
+                                <input name="save" type="submit" class="bt_orange" id="save" value="保存" />
+                                <input name="button" type="button" class="bt_grey" id="button" value="取消" onmouseover="this.className='bt_orange';"
+                                    onmouseout="this.className='bt_grey';" onclick="location='signing_list.aspx';" />
+                            </td>
+                        </tr>
+                    </table>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
